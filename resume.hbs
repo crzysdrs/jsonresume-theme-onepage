@@ -173,6 +173,43 @@
       {{/each}}
     </div>
 	</div>
+	  <div class='sectionLine'></div>
+	{{/if}}
+
+	{{#if resume.projects.length}}
+	<div id='projects' class="sectionBlock">
+    <div class='sectionName'>
+      <span>PROJECTS</span>
+    </div>
+    <div class='sectionContent'>
+      {{#each resume.projects}}
+      <div class='educationBlock'>
+        <span class='title'>
+          {{#if name}}{{name}}{{/if}}
+        </span>
+        {{#if startDate}}
+        <span class='date'>
+          {{#if startDate}}{{startDate}}{{/if}} &mdash; {{#if endDate}}{{endDate}}{{else}}Present{{/if}}
+        </span>
+        {{/if}}
+	{{#if url}}
+        <div class='website'><a href='{{url}}'>{{url}}</a></div>
+        {{/if}}
+        <div class=''>
+          {{#if description}}{{description}} {{/if}}
+        </div>
+         {{#if highlights.length}}
+	      <ul class='highlights'>
+	        {{#each highlights}}
+	        <li>{{.}}</li>
+	        {{/each}}
+	      </ul>
+	      {{/if}}
+      </div>
+      {{#unless @last}}<div class='separator'></div>{{/unless}}
+      {{/each}}
+    </div>
+	</div>
   <div class='sectionLine'></div>
 	{{/if}}
 
