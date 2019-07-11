@@ -45,7 +45,7 @@
         {{#each profiles}}
           {{#if url}}
             <span class='url'>
-              <a href='{{url}}'>{{network}}</a>
+              <a href='{{url}}'>{{url}}</a>
             </span>
             {{#unless @last}}<span class='divider'>|</span>{{/unless}}
           {{/if}}
@@ -173,6 +173,44 @@
       {{/each}}
     </div>
 	</div>
+          <div class='sectionLine'></div>
+	{{/if}}
+
+	{{#if resume.education.length}}
+	<div id='education' class="sectionBlock">
+    <div class='sectionName'>
+      <span>EDUCATION</span>
+    </div>
+    <div class='sectionContent'>
+      {{#each resume.education}}
+      <div class='educationBlock'>
+        <span class='title'>
+          {{#if institution}}{{institution}}{{/if}}
+        </span>
+        {{#if startDate}}
+        <span class='date'>
+          {{#if startDate}}{{startDate}}{{/if}} &mdash; {{#if endDate}}{{endDate}}{{else}}Present{{/if}}
+        </span>
+        {{/if}}
+        <div class=''>
+          {{#if studyType}}{{studyType}} {{/if}} - {{#if area}}{{area}}{{/if}}{{#if gpa}}, GPA: {{gpa}}{{/if}}
+        </div>
+        {{#if courses.length}}
+        <div id='coursesBlock'>
+          {{#each courses}}
+          <ul class='coursesList'>
+            {{#each .}}
+            <li class='course'>{{.}}</li>
+            {{/each}}
+          </ul>
+          {{/each}}
+        </div>
+        {{/if}}
+      </div>
+      {{#unless @last}}<div class='separator'></div>{{/unless}}
+      {{/each}}
+    </div>
+	</div>
 	  <div class='sectionLine'></div>
 	{{/if}}
 
@@ -183,7 +221,7 @@
     </div>
     <div class='sectionContent'>
       {{#each resume.projects}}
-      <div class='educationBlock'>
+      <div class='projectBlock'>
         <span class='title'>
           {{#if name}}{{name}}{{/if}}
         </span>
@@ -193,7 +231,7 @@
         </span>
         {{/if}}
 	{{#if url}}
-        <div class='website'><a href='{{url}}'>{{url}}</a></div>
+        <span class='date'><a href='{{url}}'>{{url}}</a></span>
         {{/if}}
         <div class=''>
           {{#if description}}{{description}} {{/if}}
@@ -242,44 +280,7 @@
       {{/each}}
     </div>
 	</div>
-  <div class='sectionLine'></div>
-	{{/if}}
 
-	{{#if resume.education.length}}
-	<div id='education' class="sectionBlock">
-    <div class='sectionName'>
-      <span>EDUCATION</span>
-    </div>
-    <div class='sectionContent'>
-      {{#each resume.education}}
-      <div class='educationBlock'>
-        <span class='title'>
-          {{#if institution}}{{institution}}{{/if}}
-        </span>
-        {{#if startDate}}
-        <span class='date'>
-          {{#if startDate}}{{startDate}}{{/if}} &mdash; {{#if endDate}}{{endDate}}{{else}}Present{{/if}}
-        </span>
-        {{/if}}
-        <div class=''>
-          {{#if studyType}}{{studyType}} {{/if}} - {{#if area}}{{area}}{{/if}}{{#if gpa}}, GPA: {{gpa}}{{/if}}
-        </div>
-        {{#if courses.length}}
-        <div id='coursesBlock'>
-          {{#each courses}}
-          <ul class='coursesList'>
-            {{#each .}}
-            <li class='course'>{{.}}</li>
-            {{/each}}
-          </ul>
-          {{/each}}
-        </div>
-        {{/if}}
-      </div>
-      {{#unless @last}}<div class='separator'></div>{{/unless}}
-      {{/each}}
-    </div>
-	</div>
   <div class='sectionLine'></div>
 	{{/if}}
 
